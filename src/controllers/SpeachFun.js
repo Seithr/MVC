@@ -9,7 +9,7 @@ const speachFunPage = (req, res) => {
       return res.status(400).json({ error: 'An error occurred' });
     }
 
-    return res.render('app', { csrfToken: req.csrfToken(), foxes: docs });
+    return res.render('speachFun', { csrfToken: req.csrfToken(), foxes: docs });
   });
 };
 
