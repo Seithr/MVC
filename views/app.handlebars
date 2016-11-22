@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>FoxMaker</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+  <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/custom">Custom</a></div>
+    <div class="navlink"><a href="/speachFun">Fun with Speach</a></div>
+  </nav>
+  <section id="makeFox">
+    <form id="foxForm" name="foxForm" action="/maker" method="POST" class="foxForm">
+      <label for="name">Name: </label>
+      <input id="foxName" type="text" name="name" placeholder="Fox Name"/>
+      <label for="age">Age: </label>
+      <input id="foxAge" type="text" name="age" placeholder="Fox Age"/>
+      <label for="favPhrase">Favorite Phrase: </label>
+      <input id="foxFavPhrase" type="text" name="favPhrase" placeholder="Fox Favorite Phrase"/>
+      <input type="hidden" name="_csrf" value={{csrfToken}} />
+      <a id="makeFoxSubmit" href="#" class="makeFoxSubmit">Make Fox</a>
+    </form>
+  </section>
+  <section id="foxes">
+    <div class="fox">
+      {{#if foxes}}
+        {{#each foxes}}
+          <div class="fox"><img src="/assets/img/foxface.jpeg" alt="fox face" class="foxFace"/>
+            <h3 class="foxName">Name: {{this.name}}</h3>
+            <h3 class="foxAge">Age: {{this.age}}</h3>
+            <h3 class="foxFavPhrase">Favorite Phrase: {{this.favPhrase}}</h3>
+          </div>
+        {{/each}}
+      {{else}}
+        <h3 class="emptyFox">No Foxes yet</h3>
+      {{/if}}
+    </div>
+  </section>
+  <div id="foxMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
+    <h3><span id="errorMessage"></span></h3><img id="fox" src="assets/img/umbreon.png" alt="fox"/>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="/assets/maker.js" type="text/babel"></script>
+</body>
+</html>
