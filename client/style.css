@@ -25,17 +25,12 @@ nav:nth-child(1) {
 }
 
 #speachInput {
-  width: 200px;
-  margin-left: 10px;
+  width: 175px;
+  margin-right: 10px;
   font-size: 1.2em;
   float: right;
   color: black;
   font-weight: bold;
-}
-
-input {
-  float: right;
-  margin: 10px;
 }
 
 .navlink {
@@ -200,8 +195,8 @@ input {
   z-index: 225;
   margin-top: -20px;
   margin-left: 135px;
-  height: 450px;
-  width: 300px;
+  height: 440px;
+  width: 430px;
   -ms-transform: rotate(330deg);
   -webkit-transform: rotate(330deg); 
   transform: rotate(330deg);
