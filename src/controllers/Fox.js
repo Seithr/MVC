@@ -14,13 +14,12 @@ const makerPage = (req, res) => {
 };
 
 const makeFox = (req, res) => {
-  if (!req.body.name || !req.body.age || !req.body.favPhrase) {
-    return res.status(400).json({ error: 'Name, age, and favorite phrase are required' });
+  if (!req.body.name || !req.body.favPhrase) {
+    return res.status(400).json({ error: 'Both name and favorite phrase are required' });
   }
 
   const foxData = {
     name: req.body.name,
-    age: req.body.age,
     favPhrase: req.body.favPhrase,
     owner: req.session.account._id,
   };

@@ -9,14 +9,12 @@
 <body>
   <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
     <div class="navlink"><a href="/logout">Log out</a></div>
-    <div class="navlink"><a href="/speachFun">Fun with Speach</a></div>
+    <div class="navlink"><a href="/speach">Fun with Speach</a></div>
   </nav>
   <section id="makeFox">
     <form id="foxForm" name="foxForm" action="/maker" method="POST" class="foxForm">
       <label for="name">Name: </label>
       <input id="foxName" type="text" name="name" placeholder="Fox Name"/>
-      <label for="age">Age: </label>
-      <input id="foxAge" type="text" name="age" placeholder="Fox Age"/>
       <label for="favPhrase">Favorite Phrase: </label>
       <input id="foxFavPhrase" type="text" name="favPhrase" placeholder="Fox Favorite Phrase"/>
       <input type="hidden" name="_csrf" value={{csrfToken}} />
@@ -27,9 +25,8 @@
     <div class="fox">
       {{#if foxes}}
         {{#each foxes}}
-          <div class="fox"><img src="/assets/img/foxface.jpeg" alt="fox face" class="foxFace"/>
+          <div class="fox"><img src="/assets/img/foxface.jpg" alt="fox face" class="foxFace"/>
             <h3 class="foxName">Name: {{this.name}}</h3>
-            <h3 class="foxAge">Age: {{this.age}}</h3>
             <h3 class="foxFavPhrase">Favorite Phrase: {{this.favPhrase}}</h3>
           </div>
         {{/each}}

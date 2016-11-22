@@ -11,6 +11,27 @@
     <div class="navlink"><a href="/logout">Log out</a></div>
     <div class="navlink"><a href="/maker">Main</a></div>
   </nav>
+  <section id="foxes">
+    <div class="fox">
+      {{#if foxes}}
+        {{#each foxes}}
+          <div class="fox"><img src="/assets/img/foxface.jpg" alt="fox face" class="foxFace"/>
+            <h3 class="foxName">Name: {{this.name}}</h3>
+            <input id="favPhrase" type="hidden" name="favPhrase" value="{{this.favPhrase}}" />
+            <div id="speachInput">
+              <label for="speach">What do you want me to say?</label><br />
+              <input id="speach" type="text" name="speach" placeholder="speach input"/>
+            </div>
+            <input type="hidden" name="_csrf" value={{csrfToken}} />
+            <a id="speachSubmit" href="#" class="formSubmit">Speak!</a>
+            <p id="outSpeach"></p>
+          </div>
+        {{/each}}
+      {{else}}
+        <h3 class="emptyFox">No Foxes yet</h3>
+      {{/if}}
+    </div>
+  </section>
   <div id="foxMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
     <h3><span id="errorMessage"></span></h3><img id="fox" src="assets/img/umbreon.png" alt="fox"/>
   </div>

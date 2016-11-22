@@ -13,4 +13,4 @@ const speachFunPage = (req, res) => {
   });
 };
 
-module.exports.speachFun = speachFunPage;
+module.exports.speachFunPage = speachFunPage;

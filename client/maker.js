@@ -30,12 +30,31 @@ $(document).ready(function() {
     
     $("#foxMessage").animate({width:'hide'},350);
     
-    if($("#foxName").val() == '' || $("#foxAge").val() == '' || $("#foxFavPhrase").val() == '') {
+    if($("#foxName").val() == '' || $("#foxFavPhrase").val() == '') {
       handleError("All fields are required");
       return false;
     }
 
     sendAjax($("#foxForm").attr("action"), $("#foxForm").serialize());
+
+    return false;
+  });
+  
+  $("#speachSubmit").on("click", (e) => {
+    e.preventDefault();
+    
+    $("#foxMessage").animate({width:'hide'},350);
+    
+    if($("#speach").val() == '') {
+      handleError("They have nothing to say.");
+      return false;
+    } else {
+      let userIn = $("#speach").val();
+      let favPhrase = $("#favPhrase").val();
+      let myOut = userIn + " " + favPhrase;
+      console.log(myOut);
+      $("#outSpeach").html(myOut);
+    }
 
     return false;
   });

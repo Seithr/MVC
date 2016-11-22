@@ -18,12 +18,6 @@ const FoxSchema = new mongoose.Schema({
     set: setName,
   },
 
-  age: {
-    type: Number,
-    min: 0,
-    required: true,
-  },
-
   favPhrase: {
     type: String,
     required: true,
@@ -44,7 +38,6 @@ const FoxSchema = new mongoose.Schema({
 
 FoxSchema.statics.toAPI = doc => ({
   name: doc.name,
-  age: doc.age,
   favPhrase: doc.favPhrase,
 });
 
@@ -53,7 +46,7 @@ FoxSchema.statics.findByOwner = (ownerId, callback) => {
     owner: convertId(ownerId),
   };
 
-  return FoxModel.find(search).select('name age favPhrase').exec(callback);
+  return FoxModel.find(search).select('name favPhrase').exec(callback);
 };
 
 FoxModel = mongoose.model('Fox', FoxSchema);
